@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Tiket</title>
+    <style>
+        body{
+            background-color: #f4f6ff;
+        }
+        h2{
+            color: #07031a;
+            text-align: center;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 30px;
+        }
+        /* form {} */
+        input[type=text],
+        select {
+            width: 25%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f4f6ff;
+            color: #11144c;
+        }
+       
+        form {
+            color: #11144c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #91d18b;
+            border-radius: 5px;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 12px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 10%;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #045762;
+            color: #f3f2da;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Pemesanan Tiket Maskapai</h2>
+
+    <div>
+    <form id="form">
+        <pre>
+        Nama             <input type="text" name="nama" id="Nama" placeholder="Masukan nama lengkap Anda">
+        Jumlah Tiket     <input type="text" name="jumlahtiket" id="Tiket" placeholder="Masukan jumlah tiket">
+        Kelas            <select name="kelas" id="Kelas">
+                            <option selected="true">Pilih</option>
+                            <option value="Ekonomi (Air Mineral)">Ekonomi</option>
+                            <option value="Bisnis (Snack)">Bisnis</option>
+                            <option value="Eksekutif (Makan)">Eksekutif</option>
+                         </select>
+        Tujuan           <select name="tujuan" id="Tujuan" onchange="hargatiket()">
+                            <option selected="true">Pilih</option>
+                            <option value="Bali">Bali</option>
+                            <option value="Surabaya">Surabaya</option>
+                            <option value="Yogyakarta">Yogyakarta</option>
+                         </select>
+    
+        Bagasi           <input type="radio" name="bagasi" value="5kg" id="Bagasi"><label for="">5kg</label> <input type="radio" name="bagasi" value="10kg" id="Bagasi"><label for="">10kg</label> <input type="radio" name="bagasi" value="15kg" id="Bagasi"><label for="">15kg</label>
+
+        Asuransi         <input type="checkbox" name="asuransi" id="Asuransi" value="Asuransi Jiwa"><label for="">Asuransi Jiwa</label>
+                         <input type="checkbox" name="asuransi" id="Asuransi" value="Asuransi Kecelakaan"><label for="">Asuransi Kecelakaan</label>
+                         <input type="checkbox" name="asuransi" id="Asuransi" value="Asuransi Keterlambatan"><label for="">Asuransi Keterlambatan</label>
+
+        <button type="submit" value="simpan">Simpan</button>  <button type="reset" value="batal">Batal</button>
+    </pre>
+    </form>
+    </div>
+</body>
+<script type='text/javascript'>  
+    document.getElementById("form").onsubmit=submit
+    
+
+    function submit() {
+        let nama            =document.getElementById("Nama").value 
+        let jmltiket        =document.getElementById("Tiket").value
+        let kelas           =document.getElementById("Kelas").value
+        let tujuan          =document.getElementById("Tujuan").value
+        let bagasi          =document.querySelector("input[name=bagasi]:checked").value
+        let nasuransi       =document.querySelectorAll("input[name=asuransi]:checked")
+        
+        let asuransi=[]
+        for(let a=0;a<nasuransi.length;a++){
+            asuransi.push(nasuransi[a].value)
+        }
+
+        // console.log(nasuransi);
+
+        document.write(`Nama         : ${nama}<br>`);
+        document.write(`Jumlah Tiket : ${jmltiket}<br>`);
+        document.write(`Kelas        : ${kelas}<br>`);
+        document.write(`Tujuan       : ${tujuan}<br>`);
+        document.write(`Bagasi       : ${bagasi}<br>`);
+        document.write(`Asuransi     : ${asuransi.join(",")}<br>`);
+       
+    }
+
+</script>
+</html>
+
