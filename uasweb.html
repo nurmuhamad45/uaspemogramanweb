@@ -14,7 +14,7 @@
             font-size: 30px;
         }
         /* form {} */
-        input[type=text],
+        input[type=text],[type=number],
         select {
             width: 25%;
             padding: 12px 20px;
@@ -66,7 +66,7 @@
     <form id="form">
         <pre>
         Nama             <input type="text" name="nama" id="Nama" placeholder="Masukan nama lengkap Anda">
-        Jumlah Tiket     <input type="text" name="jumlahtiket" id="Tiket" placeholder="Masukan jumlah tiket">
+        Jumlah Tiket     <input type="number" name="jumlahtiket" id="Tiket" placeholder="Masukan jumlah tiket">
         Kelas            <select name="kelas" id="Kelas">
                             <option selected="true">Pilih</option>
                             <option value="Ekonomi (Air Mineral)">Ekonomi</option>
@@ -109,13 +109,16 @@
         }
 
         // console.log(nasuransi);
-
+        
         document.write(`Nama         : ${nama}<br>`);
         document.write(`Jumlah Tiket : ${jmltiket}<br>`);
         document.write(`Kelas        : ${kelas}<br>`);
         document.write(`Tujuan       : ${tujuan}<br>`);
         document.write(`Bagasi       : ${bagasi}<br>`);
         document.write(`Asuransi     : ${asuransi.join(",")}<br>`);
+
+
+        
        
     }
 
